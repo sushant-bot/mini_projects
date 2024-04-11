@@ -1,0 +1,101 @@
+import math
+
+def add(x, y):
+   return x + y
+
+def subtract(x, y):
+   return x - y
+
+def multiply(x, y):
+   return x * y
+
+def divide(x, y):
+   if y == 0:
+       return "Error! Division by zero is not allowed."
+   else:
+       return x / y
+
+def power(x, y):
+   return math.pow(x, y)
+
+def square_root(x):
+   if x < 0:
+       return "Error! Square root of negative number is not allowed."
+   else:
+       return math.sqrt(x)
+
+def modulus(x, y):
+   return x % y
+
+def factorial(x):
+   if x < 0:
+       return "Error! Factorial of negative number is not allowed."
+   elif x == 0:
+       return 1
+   else:
+       return math.factorial(x)
+
+def natural_log(x):
+   if x <= 0:
+       return "Error! Natural logarithm of non-positive number is not allowed."
+   else:
+       return math.log(x)
+
+def log10(x):
+   if x <= 0:
+       return "Error! Logarithm base 10 of non-positive number is not allowed."
+   else:
+       return math.log10(x)
+
+print("Select operation:")
+print("1.Add")
+print("2.Subtract")
+print("3.Multiply")
+print("4.Divide")
+print("5.Modulus")
+print("6.Power")
+print("7.Square Root")
+print("8.Factorial")
+print("9.Natural Logarithm")
+print("10.Logarithm Base 10")
+
+while True:
+   choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10): ")
+
+   if choice in ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10'):
+       num1 = float(input("Enter first number: "))
+       num2 = float(input("Enter second number: ")) if choice in ('4', '5', '6') else 0
+
+       if choice == '1':
+           print(num1, "+", num2, "=", add(num1, num2))
+
+       elif choice == '2':
+           print(num1, "-", num2, "=", subtract(num1, num2))
+
+       elif choice == '3':
+           print(num1, "*", num2, "=", multiply(num1, num2))
+
+       elif choice == '4':
+           print(num1, "/", num2, "=", divide(num1, num2))
+
+       elif choice == '5':
+           print(num1, "mod", num2, "=", modulus(num1, num2))
+
+       elif choice == '6':
+           print(num1, "^", num2, "=", power(num1, num2))
+
+       elif choice == '7':
+           print("Square root of", num1, "=", square_root(num1))
+
+       elif choice == '8':
+           print("Factorial of", num1, "=", factorial(num1))
+
+       elif choice == '9':
+           print("Natural logarithm of", num1, "=", natural_log(num1))
+
+       elif choice == '10':
+           print("Logarithm base 10 of", num1, "=", log10(num1))
+
+       break
+   else:
+       print("Invalid Input")

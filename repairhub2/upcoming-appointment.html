@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    </head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+header {
+    background: linear-gradient(to right, #4c6e9b, #5a84c9);
+    color: #fff;
+    padding: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.appointment-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.appointment-item:hover {
+    background: linear-gradient(to right, #f0f0f0, #ffffff);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.details {
+    display: none;
+    padding: 10px;
+    background: linear-gradient(to right, #e9e9e9, #d9d9d9);
+    border-radius: 5px;
+}
+
+.show {
+    display: block;
+}
+
+button {
+    background-color: #5a84c9;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4c6e9b;
+}
+
+@media (max-width: 768px) {
+    .appointment-item {
+        width: 100%;
+    }
+}
+
+footer {
+    background: linear-gradient(to right, #333, #555);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+    </style>
+<body>
+    <header>
+        <!-- Include header content here -->
+        <h1>Appointments</h1>
+        <nav>
+            <!-- Include navigation menu items here -->
+            <a href="dashboard.html">Home</a>
+            <a href="request-form.html">Appointments</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="appointments">
+            <h2>Upcoming Appointments</h2>
+            <article class="appointment-item">
+                <p>Date: 1/1/2024</p>
+                <p>Time: 10:00 AM</p>
+                <p>Service: Plumbing</p>
+                <p>Technician: sushant</p>
+                <div class="details">
+                    <h4>Additional Details</h4>
+                    <p>Address: dhanori</p>
+                    <p>Instructions: Please provide access to the basement.</p>
+                </div>
+            </article>
+            <div id="no-appointments" style="display: none;">
+                <p>You have no upcoming appointments scheduled.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Include footer content here -->
+  
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const appointmentItems = document.querySelectorAll(".appointment-item");
+    const noAppointments = document.getElementById("no-appointments");
+
+    if (appointmentItems.length === 0) {
+        noAppointments.style.display = "block";
+    }
+
+    // Use event delegation to handle click events on appointment items
+    document.getElementById("appointments").addEventListener("click", function(event) {
+        if (event.target.classList.contains("appointment-item")) {
+            const details = event.target.querySelector(".details");
+            details.classList.toggle("show");
+        }
+    });
+});
+    </script>
+</body>
+</html>

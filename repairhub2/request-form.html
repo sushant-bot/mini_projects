@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    
+</head>
+
+<style> 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+header {
+    background: linear-gradient(to right, #4c6e9b, #5a84c9);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center;
+    color: #4c6e9b;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 150px;
+}
+
+.btn {
+    background-color: #5a84c9;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #4c6e9b;
+}
+
+footer {
+    background: linear-gradient(to right, #333, #555);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+.invalid {
+  border-color: red;
+}
+</style>
+<body>
+    <header>
+        <nav>
+            <a href="dashboard.html">Home</a>
+            <a href="upcoming-appointment.html">Upcoming Appointments</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="request-form">
+            <div class="container">
+                <h2>Request Service</h2>
+                <form id="service-request-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Required</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="ac-repair">AC Repair</option>
+                            <option value="fridge-repair">Fridge Repair</option>
+                            <option value="oven-repair">Oven Repair</option>
+                            <option value="washer-repair">Washer Repair</option>
+                            <option value="painting">Painting</option>
+                            <option value="Plumbing">plumbing</option>
+                            <option value="laptop-repair">laptop Repair</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script>
+      // Get the form and form elements
+const form = document.getElementById('service-request-form');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const serviceSelect = document.getElementById('service');
+const messageInput = document.getElementById('message');
+
+// Add event listener for form submission
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Validate form fields
+  const isValid = validateForm();
+
+  if (isValid) {
+    // Form is valid, you can submit the form data
+    submitFormData();
+  }
+});
+
+// Function to validate form fields
+function validateForm() {
+  let isValid = true;
+
+  // Validate name
+  if (nameInput.value.trim() === '') {
+    isValid = false;
+    nameInput.classList.add('invalid');
+  } else {
+    nameInput.classList.remove('invalid');
+  }
+
+  // Validate email
+  if (emailInput.value.trim() === '') {
+    isValid = false;
+    emailInput.classList.add('invalid');
+  } else {
+    emailInput.classList.remove('invalid');
+  }
+
+  // Validate service
+  if (serviceSelect.value === '') {
+    isValid = false;
+    serviceSelect.classList.add('invalid');
+  } else {
+    serviceSelect.classList.remove('invalid');
+  }
+
+  // Validate message
+  if (messageInput.value.trim() === '') {
+    isValid = false;
+    messageInput.classList.add('invalid');
+  } else {
+    messageInput.classList.remove('invalid');
+  }
+
+  return isValid;
+}
+
+// Function to submit form data
+function submitFormData() {
+  // Get form data
+  const formData = {
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    service: serviceSelect.value,
+    message: messageInput.value.trim()
+  };
+
+  // Send the form data to the server or perform any other desired action
+  console.log('Form data:', formData);
+
+  // Reset the form
+  form.reset();
+}
+    </script>
+</body>
+</html>

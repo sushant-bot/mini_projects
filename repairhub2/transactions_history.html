@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction History</title>
+  
+</head>
+<style>
+/* Reset styles */
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 1rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+}
+
+nav ul li a:hover {
+  color: #333;
+  background-color: #fff;
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  background-color: #f4f4f4;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#transaction-list {
+  margin-top: 1rem;
+}
+
+.transaction {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transaction:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+  </style>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="transaction-history">
+      <h1>Transaction History</h1>
+      <div id="transaction-list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p> Transaction History Page</p>
+  </footer>
+
+  <script>
+// Sample transaction data
+const transactions = [
+  {
+    id: 1,
+    date: '2023-04-15',
+    description: 'Monthly Subscription',
+    amount: -19.99
+  },
+  {
+    id: 2,
+    date: '2023-04-12',
+    description: 'Online Purchase',
+    amount: -49.95
+  },
+  {
+    id: 3,
+    date: '2023-04-10',
+    description: 'Salary Payment',
+    amount: 3000.00
+  },
+  // Add more transaction objects as needed
+];
+
+// Function to render transaction list
+function renderTransactionList() {
+  const transactionList = document.getElementById('transaction-list');
+  transactionList.innerHTML = '';
+
+  transactions.forEach(transaction => {
+    const transactionElement = document.createElement('div');
+    transactionElement.classList.add('transaction');
+
+    const dateElement = document.createElement('p');
+    dateElement.textContent = `Date: ${transaction.date}`;
+    transactionElement.appendChild(dateElement);
+
+    const descriptionElement = document.createElement('p');
+    descriptionElement.textContent = `Description: ${transaction.description}`;
+    transactionElement.appendChild(descriptionElement);
+
+    const amountElement = document.createElement('p');
+    amountElement.textContent = `Amount: ${transaction.amount.toFixed(2)}`;
+    transactionElement.appendChild(amountElement);
+
+    transactionList.appendChild(transactionElement);
+  });
+}
+
+// Call the renderTransactionList function to display the transactions
+renderTransactionList();
+  </script>
+</body>
+</html>

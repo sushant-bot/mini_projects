@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #270f34;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background-image:
+        radial-gradient(circle at 50% 50%, #51eaea, #fffde1, #ff9d76, #FB3569);
+      background-size: 400% 400%;
+      animation: gradientAnimation 12s ease infinite;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #3D348B;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #3D348B;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #F7B801;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: #F18701;
+      outline: none;
+    }
+
+    .rating-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .rating-stars {
+      font-size: 30px; /* Increase star size */
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .rating-stars.active,
+    .rating-stars.active ~ .rating-stars {
+      color: #F35B04;
+    }
+
+    .rating-stars:hover,
+    .rating-stars:hover ~ .rating-stars {
+      color: #FF9800; /* Change hover color to orange */
+    }
+
+    .rating-label {
+      font-size: 14px;
+      color: #3D348B;
+      margin-left: 10px;
+      display: none;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #3D348B;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .submit-btn:hover {
+      background-color: #7678ED;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+
+    #reviewList {
+      margin-top: 30px;
+    }
+
+    .review {
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 4px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .review:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .review .name {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #3D348B;
+    }
+
+    .review .rating {
+      color: #F35B04;
+      margin-bottom: 10px;
+    }
+
+    .review .comment {
+      margin-bottom: 0;
+      color: #3D348B;
+    }
+
+    .footer {
+      position: fixed; /* Change to fixed position */
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: rgba(39, 15, 52, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1s ease-in-out;
+      z-index: 2; /* Add a higher z-index */
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      position: relative;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .footer-nav a:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #ffffff;
+      transition: width 0.3s ease;
+    }
+
+    .footer-nav a:hover {
+      color: #7678ED;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-nav a:hover:before {
+      width: 100%;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="container">
+    <h1>Leave a Review</h1>
+    <form id="reviewForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="rating">Rating:</label>
+        <div class="rating-container">
+          <div class="rating-stars" data-rating="1">&#9733;</div>
+          <div class="rating-stars" data-rating="2">&#9733;</div>
+          <div class="rating-stars" data-rating="3">&#9733;</div>
+          <div class="rating-stars" data-rating="4">&#9733;</div>
+          <div class="rating-stars" data-rating="5">&#9733;</div>
+          <span class="rating-label" data-rating="1">Very Poor</span>
+          <span class="rating-label" data-rating="2">Poor</span>
+          <span class="rating-label" data-rating="3">Average</span>
+          <span class="rating-label" data-rating="4">Good</span>
+          <span class="rating-label" data-rating="5">Excellent</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="review">Review:</label>
+        <textarea id="review" name="review" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Submit Review</button>
+    </form>
+    <div id="reviewList"></div>
+  </div>
+
+  <div class="footer">
+    <nav class="footer-nav">
+      <a href="dashboard.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <script>
+    const reviewForm = document.getElementById('reviewForm');
+    const reviewList = document.getElementById('reviewList');
+    const ratingStars = document.querySelectorAll('.rating-stars');
+    const ratingLabels = document.querySelectorAll('.rating-label');
+
+    // Add event listeners for rating stars
+    ratingStars.forEach(star => {
+      star.addEventListener('click', function() {
+        const rating = this.dataset.rating;
+        this.parentNode.querySelectorAll('.rating-stars').forEach(otherStar => {
+          if (otherStar.dataset.rating <= rating) {
+            otherStar.classList.add('active');
+          } else {
+            otherStar.classList.remove('active');
+          }
+        });
+        this.parentNode.querySelectorAll('.rating-label').forEach(label => {
+          label.style.display = 'none';
+        });
+        this.parentNode.querySelector(`.rating-label[data-rating="${rating}"]`).style.display = 'inline-block';
+      });
+
+      star.addEventListener('mouseenter', function() {
+        const rating = this.dataset.rating;
+        this.parentNode.querySelectorAll('.rating-stars').forEach(otherStar => {
+          if (otherStar.dataset.rating <= rating) {
+            otherStar.classList.add('active');
+          } else {
+            otherStar.classList.remove('active');
+          }
+        });
+        this.parentNode.querySelectorAll('.rating-label').forEach(label => {
+          label.style.display = 'none';
+        });
+        this.parentNode.querySelector(`.rating-label[data-rating="${rating}"]`).style.display = 'inline-block';
+      });
+
+      // Reset the rating message while moving on to the next star
+      star.addEventListener('mouseleave', function() {
+        this.parentNode.querySelectorAll('.rating-label').forEach(label => {
+          label.style.display = 'none';
+        });
+      });
+    });
+
+    reviewForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const rating = document.querySelector('.rating-stars.active').dataset.rating;
+      const review = document.getElementById('review').value;
+
+      const reviewDiv = document.createElement('div');
+      reviewDiv.classList.add('review');
+
+      const nameElement = document.createElement('div');
+      nameElement.classList.add('name');
+      nameElement.textContent = name;
+
+      const ratingElement = document.createElement('div');
+      ratingElement.classList.add('rating');
+      for (let i = 0; i < rating; i++) {
+        const starIcon = document.createElement('span');
+        starIcon.textContent = '&#9733;';
+        ratingElement.appendChild(starIcon);
+      }
+
+      const commentElement = document.createElement('p');
+      commentElement.classList.add('comment');
+      commentElement.textContent = review;
+
+      reviewDiv.appendChild(nameElement);
+      reviewDiv.appendChild(ratingElement);
+      reviewDiv.appendChild(commentElement);
+
+      reviewList.appendChild(reviewDiv);
+
+      reviewForm.reset();
+    });
+  </script>
+</body>
+</html>

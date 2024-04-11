@@ -1,0 +1,53 @@
+<!-- Header -->
+<!-- ... -->
+
+<main>
+    <section id="reviews">
+      <div class="container">
+        <h2>Customer Reviews</h2>
+        <div id="customer-reviews">
+          <!-- Customer reviews will be populated dynamically -->
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <!-- ... -->
+  
+  <script>
+    // Reviews Page
+    const reviewsContainer = document.getElementById('customer-reviews');
+  
+    const customerReviews = [
+      {
+        review: '"Excellent service! They fixed my AC unit quickly and efficiently. Highly recommended."',
+        customerName: 'John Doe',
+      },
+      {
+        review: '"The technicians were professional and knowledgeable. My fridge is working like new!"',
+        customerName: 'Jane Smith',
+      },
+      {
+        review: '"I was really impressed with their prompt response and quality workmanship. Will definitely use their services again."',
+        customerName: 'Michael Johnson',
+      },
+      // Add more customer reviews as needed
+    ];
+  
+    customerReviews.forEach(review => {
+      const reviewElement = document.createElement('div');
+      reviewElement.classList.add('review');
+  
+      const reviewText = document.createElement('p');
+      reviewText.textContent = review.review;
+      reviewElement.appendChild(reviewText);
+  
+      const customerName = document.createElement('p');
+      customerName.classList.add('customer-name');
+      customerName.textContent = `- ${review.customerName}`;
+      reviewElement.appendChild(customerName);
+  
+      reviewsContainer.appendChild(reviewElement);
+    });
+  </script>

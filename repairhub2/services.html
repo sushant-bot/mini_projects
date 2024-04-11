@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Household Maintenance Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #7678ED;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #3D348B;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.service {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.service:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.service i {
+  font-size: 36px;
+  color: #F35B04;
+  margin-bottom: 10px;
+}
+
+.service h3 {
+  color: #3D348B;
+  margin-bottom: 10px;
+}
+
+.service p {
+  color: #3D348B;
+  margin: 0;
+}
+</style>
+<body>
+  <div class="container">
+    <h1>Household Maintenance Services</h1>
+    <div class="services">
+      <div class="service">
+        <i class="fas fa-brush"></i>
+        <h3>Painting</h3>
+        <p>We offer professional painting services for both interior and exterior surfaces.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-wrench"></i>
+        <h3>Plumbing</h3>
+        <p>Our experienced plumbers can handle any plumbing issue, from fixing leaks to installing new fixtures.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-bolt"></i>
+        <h3>Electrical</h3>
+        <p>Our certified electricians provide safe and reliable electrical services, including installations and repairs.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-broom"></i>
+        <h3>Cleaning</h3>
+        <p>We offer professional cleaning services to keep your home spotless and well-maintained.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-oven"></i>
+        <h3>Oven Repair</h3>
+        <p>Our technicians can diagnose and repair any issues with your oven or range.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-snowflake"></i>
+        <h3>AC Repair</h3>
+        <p>Keep your home cool and comfortable with our expert AC repair and maintenance services.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-refrigerator"></i>
+        <h3>Fridge Repair</h3>
+        <p>We can repair and maintain your refrigerator, ensuring it stays in top condition.</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-laptop"></i>
+        <h3>Laptop Repair</h3>
+        <p>Bring your laptop to us for professional repair and troubleshooting services.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+const services = document.querySelectorAll('.service');
+
+services.forEach(service => {
+  service.addEventListener('click', () => {
+    alert(`You selected: ${service.querySelector('h3').textContent}`);
+  });
+});
+  </script>
+</body>
+</html>

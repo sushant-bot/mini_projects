@@ -1,0 +1,60 @@
+<!-- Header -->
+<!-- ... -->
+
+<main>
+  <section id="blog">
+    <div class="container">
+      <h2>Our Blog</h2>
+      <div id="blog-posts">
+        <!-- Blog posts will be populated dynamically -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<!-- ... -->
+
+<script>
+  // Blog Page
+  const blogPostsContainer = document.getElementById('blog-posts');
+
+  const blogPosts = [
+    {
+      title: 'Blog Post Title 1',
+      date: 'June 1, 2023',
+    },
+    {
+      title: 'Blog Post Title 2',
+      date: 'May 15, 2023',
+     
+    },
+    // Add more blog posts as needed
+  ];
+
+  blogPosts.forEach(post => {
+    const blogPost = document.createElement('div');
+    blogPost.classList.add('blog-post');
+
+    const title = document.createElement('h3');
+    title.textContent = post.title;
+    blogPost.appendChild(title);
+
+    const date = document.createElement('p');
+    date.classList.add('post-date');
+    date.textContent = `Posted on: ${post.date}`;
+    blogPost.appendChild(date);
+
+    const excerpt = document.createElement('p');
+    excerpt.textContent = post.excerpt;
+    blogPost.appendChild(excerpt);
+
+    const readMoreButton = document.createElement('a');
+    readMoreButton.classList.add('btn');
+    readMoreButton.textContent = 'Read More';
+    readMoreButton.href = '#'; // Replace with actual blog post URL
+    blogPost.appendChild(readMoreButton);
+
+    blogPostsContainer.appendChild(blogPost);
+  });
+</script>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Areas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #7678ED;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #3D348B;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.service-areas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.area {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.area:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.area i {
+  font-size: 36px;
+  color: #F35B04;
+  margin-bottom: 10px;
+}
+
+.area h3 {
+  color: #3D348B;
+  margin: 0;
+}
+</style>
+<body>
+  <div class="container">
+    <h1>Service Areas</h1>
+    <div class="service-areas">
+      <div class="area">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>City 1</h3>
+      </div>
+      <div class="area">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>City 2</h3>
+      </div>
+      <div class="area">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>City 3</h3>
+      </div>
+      <!-- Add more areas as needed -->
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+const serviceAreas = document.querySelectorAll('.area');
+
+serviceAreas.forEach(area => {
+  area.addEventListener('click', () => {
+    alert(`You selected: ${area.querySelector('h3').textContent}`);
+  });
+});
+  </script>
+</body>
+</html>

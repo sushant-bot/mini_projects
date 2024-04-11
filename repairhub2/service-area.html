@@ -1,0 +1,38 @@
+<!-- Header -->
+<!-- ... -->
+
+<main>
+    <section id="service-area">
+      <div class="container">
+        <h2>Our Service Area</h2>
+        <p>We provide our services in the following areas:</p>
+        <div id="service-area-list">
+          <!-- Service area list will be populated dynamically -->
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <!-- ... -->
+  
+  <script>
+    // Service Area Page
+    const serviceAreaList = document.getElementById('service-area-list');
+  
+    const serviceAreas = [
+      'City 1',
+      'City 2',
+      'City 3',
+      'City 4',
+      'City 5',
+      // Add more areas as needed
+    ];
+  
+    serviceAreas.forEach(area => {
+      const listItem = document.createElement('div');
+      listItem.classList.add('service-area-item');
+      listItem.textContent = area;
+      serviceAreaList.appendChild(listItem);
+    });
+  </script>

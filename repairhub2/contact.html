@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style >
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #7678ED;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #3D348B;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+form {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #3D348B;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #F7B801;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #F18701;
+  outline: none;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #3D348B;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:hover {
+  background-color: #7678ED;
+}
+
+#contactInfo {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateX(10px);
+}
+
+.info-item i {
+  font-size: 24px;
+  color: #F35B04;
+  margin-right: 10px;
+}
+
+.info-item p {
+  margin: 0;
+  color: #3D348B;
+}
+</style>
+<body>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+    <div id="contactInfo">
+      <h2>  Our Contact Information:</h2>
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <p> Maharashtra , Pune</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-phone"></i>
+        <p> 9529642803</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-envelope"></i>
+        <p>sushantsantoshchavan007@gmail.com</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  // Here, you can add code to send the form data to a server-side script or an email service
+
+  // For demonstration purposes, let's just log the form data to the console
+  console.log('Name:', name);
+  console.log('Email:', email);
+  console.log('Message:', message);
+
+  // Reset the form after submission
+  contactForm.reset();
+});
+  </script>
+</body>
+</html>

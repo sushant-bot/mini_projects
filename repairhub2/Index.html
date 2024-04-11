@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RepairHub</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fas fa-tools"></i>
+        <h1>RepairHub</h1>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li class="dropdown">
+          <a href="#">More</a>
+          <div class="dropdown-content">
+            <a href="request-form.html">Request Service</a>
+            <a href="review1.html">Reviews</a>
+            <a href="service-area2.html">Service Area</a>
+            <a href="faq.html">FAQ</a>
+            <a href="blog.html">Blog</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login5.html">Sign Up</a></li>
+        <li><a href="login5.html">Login</a></li>
+      </ul>
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="hero">
+      <div class="hero-content">
+        <h2>Welcome to RepairHub</h2>
+        <p>Get quick and reliable repair services for your home appliances.</p>
+        <a href="login5.html" class="btn">Get Started</a>
+      </div>
+      <div class="main-image">
+        <img src="C:\Users\susha\OneDrive\Desktop\repairhub2\pic\repair_hub logo.png.png" class="slide-left">
+      </div>
+    </section>
+      </div>
+    </section>
+    <section id="services">
+      <div class="container">
+        <h2>Our Services</h2>
+        <div class="service-container">
+          <div class="service" id="ac-repair">
+            <img src="C:\Users\susha\OneDrive\Desktop\repairhub2\pic\ac.jpg" alt="AC Repair">
+            <h3>AC Repair</h3>
+            <p>We provide expert AC repair services to keep your home cool.</p>
+            <button class="btn-service">Book Now</button>
+          </div>
+          <div class="service" id="fridge-repair">
+            <img src="C:\Users\susha\OneDrive\Desktop\repairhub2\pic\frigde.jpg" alt="Fridge Repair">
+            <h3>Fridge Repair</h3>
+            <p>Keep your food fresh with our professional fridge repair services.</p>
+            <button class="btn-service">Book Now</button>
+          </div>
+          <div class="service" id="oven-repair">
+            <img src="C:\Users\susha\OneDrive\Desktop\repairhub2\pic\oven.jpg" alt="Oven Repair">
+            <h3>Oven Repair</h3>
+            <p>Get your oven back in working condition with our skilled technicians.</p>
+            <button class="btn-service">Book Now</button>
+          </div>
+            <div class="service" id="plumbing">
+              <img src="C:\Users\susha\OneDrive\Desktop\repairhub2\pic\Pluming.jpg" alt="Plumbing">
+              <h3>Plumbing</h3>
+              <p>We provide expert plumbing services to keep your pipes in top condition.</p>
+              <button class="btn-service">Book Now</button>
+            </div>
+            <div class="service" id="electrical">
+              <img src="C:\Users\susha\OneDrive\Desktop\repairhub2\pic\electrical.jpg" alt="Electrical">
+              <h3>Electrical</h3>
+              <p>Our skilled electricians can handle all your electrical repair needs.</p>
+              <button class="btn-service">Book Now</button>
+            </div>
+            <div class="service" id="painting">
+              <img src="C:\Users\susha\OneDrive\Desktop\repairhub2\pic\painting.jpg" alt="Painting">
+              <h3>Painting</h3>
+              <p>Transform your space with our professional painting services.</p>
+              <button class="btn-service">Book Now</button>
+            </div>
+            <div class="service" id="laptop">
+              <img src="C:\Users\susha\OneDrive\Desktop\repairhub2\pic\laptop.jpg" alt="Laptop Repair">
+              <h3>Laptop Repair</h3>
+              <p>Get your laptop back in working condition with our expert repair services.</p>
+              <button class="btn-service">Book Now</button>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>
+          "We are a passionate team dedicated to delivering high-quality repair services for your household appliances."</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Get the "Get Started" buttons
+    const getStartedBtns = document.querySelectorAll(".btn");
+
+    // Open the modal when a "Get Started" button is clicked
+    getStartedBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        // Redirect to the login page
+        window.location.href = "login5.html";
+      });
+    });
+
+    function redirectToLogin(event) {
+      event.preventDefault(); // Prevent the default link behavior
+
+      // Check if the user is logged in (you can use your own logic here)
+      var isLoggedIn = false; // Change this to your actual check
+
+      if (!isLoggedIn) {
+        // If not logged in, redirect to the login page
+        window.location.href = "login5.html";
+      } else {
+        // If logged in, proceed with the intended action
+        console.log("User is logged in. Proceed with the action.");
+      }
+    }
+
+    // Add the click event listener to the "Sign Up" and "Login" links
+    var signUpLink = document.querySelector('nav ul li a[href="login5.html"]:first-of-type');
+    var loginLink = document.querySelector('nav ul li a[href="login5.html"]:last-of-type');
+
+    signUpLink.addEventListener("click", redirectToLogin);
+loginLink.addEventListener("click", redirectToLogin);
+
+const bookNowButtons = document.querySelectorAll(".btn-service");
+
+bookNowButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    // Check if the user is logged in (you can use your own logic here)
+    var isLoggedIn = false; // Change this to your actual check
+
+    if (!isLoggedIn) {
+      // If not logged in, redirect to the login page
+      window.location.href = "login5.html";
+    } else {
+      // If logged in, proceed with booking
+      const serviceId = btn.parentNode.id;
+      console.log(`User is logged in. Proceed with booking for ${serviceId}.`);
+      // Add your booking logic here
+    }
+  });
+});
+</script> </body> </html>
